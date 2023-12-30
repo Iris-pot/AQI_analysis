@@ -1,49 +1,49 @@
 # AQI_analysis
-AQI空气质量分析 基于MapReduce框架
+AQI air quality analysis is based on Hadoop MapReduce
 
 [TOC]
 
-## 内容
+## Introduction
 
-基于 MapReduce 框架，分析各城市的空气质量水平。
-
-实现3个需求：
-
-1. 以 PM25 的空气质量分指数（**IAQI**）为衡量指标，比较 2018 年 8 月至 2019 年 6 月间各城市的**空气质量水平**。
-2. 以北京、上海和成都三个城市为例，以 **AQI** 为分析指标，统计出春节期间三个城市的**空气质量等级分布情况**。
-3. 构建**空气质量综合指数体系**，将 12 个城市全部纳入分析框架，为每个城市计算出一个综合评分。
-
-## 文件及说明
+Based on the MapReduce framework, analyze the air quality levels of each city.
 
 
+Research Objectives:
 
-| 文件                 | 内容                           |
+1. Using the Air Quality Sub Index (IAQI) of PM25 as a measurement indicator, compare the air quality levels of various cities from August 2018 to June 2019.
+
+2. Taking Beijing, Shanghai, and Chengdu as examples, using AQI as the analysis indicator, **calculate the distribution of air quality levels** during the Spring Festival in these three cities.
+
+3. **Construct a comprehensive air quality index system**, including all 12 cities in the analysis framework, and calculate a comprehensive score for each city.
+
+## File Description:
+
+| File                 | Content                           |
 | -------------------- | ------------------------------ |
-| PM25city.txt         | 数据集                         |
-| 需求及数据说明.txt   | 需求介绍                       |
-| 空气质量分析报告.pdf | 分析报告（禁止抄袭）           |
-| AQI                  | 需求实现：空气质量水平比较     |
-| AQIClassify          | 需求实现：空气质量等级分布     |
-| AQIIndex             | 需求实现：空气质量综合指数体系 |
+| PM25city.txt         | Dataset                         |
+| 需求及数据说明.txt   | Requirement Description                       |
+| 空气质量分析报告.pdf | Analysis Report           |
+| AQI                  | Comparison of air quality levels     |
+| AQIClassify          | Distribution of air quality levels     |
+| AQIIndex             | Air Quality Comprehensive Index System |
 
 
 
-## 环境
+## Environment:
 
-> Hadoop 版本：2.6.5
+> Hadoop Version：2.6.5
 >
-> 虚拟机软件：VMware 11.0.0 build-2305329 
+> Virtual Machine Software：VMware 11.0.0 build-2305329 
 >
-> 操作系统：Linux master 2.6.32-504.el6.x86_64 #1 SMP Wed Oct 15 04:27:16 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux 
+> Operating system：Linux master 2.6.32-504.el6.x86_64 #1 SMP Wed Oct 15 04:27:16 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux 
 >
-> Linux 发行版本：CentOS release 6.6 (Final) 
+> Linux Version： CentOS release 6.6 (Final) 
 >
-> Hadoop 集群：一台 master，两台 slaver1，slaver2 
+> Hadoop colony：a master，two slavers: slaver1，slaver2 
 
 
 
-## 数据来源及格式
+## Data Description:
+This experiment mainly relies on air quality data, which is sourced from the internet and has a data scale of 400000 rows. The period is from 0:00 on August 1, 2018, to 23:00 on June 10, 2019, with 16 fields. The fields are station number, longitude, latitude, PM25, PM10, NO2, SO2, O3-1, O3-8h, CO, AQI, level, year, month, day, hour, and city. Separate each field with a ",". Among them, the "City" field is a string type; the rest are numerical data.
 
-本实验主要依托空气质量数据，数据来源于网络，数据规模达到40万行，时间从2018.08.01的零点至 2019.06.10的 23点，共16个字段。字段分别为：站号，经度，纬度，PM25，PM10，NO2，SO2，O3-1，O3-8h，CO，AQI，等级，年，月，日，小时，城市。每个字段之间以"，"进行分割。其中，“城市”字段为字符串类型，其余字段均为数值型数据。
-
-此外，城市包括北京、上海、天津、青岛、济南、厦门、郑州、乌鲁木齐、成都、呼和浩特、海口和昆明，共12个城市；每个城市有不同数量的空气质量监测站点，站点的采集频率为每小时一条记录。
+In addition, cities include Beijing, Shanghai, Tianjin, Qingdao, Jinan, Xiamen, Zhengzhou, Urumqi, Chengdu, Hohhot, Haikou, and Kunming, totalling 12 cities; Each city has a different number of air quality monitoring stations, with a collection frequency of one record per hour.
